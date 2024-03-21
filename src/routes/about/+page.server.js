@@ -1,4 +1,3 @@
-import { random } from '$lib';
 import { error } from '@sveltejs/kit';
 
 export const load = async ({ fetch }) => {
@@ -11,6 +10,6 @@ export const load = async ({ fetch }) => {
 		});
 	}
 	return {
-		n: posts[random(posts.length - 1)].title.length
+		posts
 	};
 };
