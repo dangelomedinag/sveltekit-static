@@ -19,7 +19,7 @@
 			<header>
 				<div>{post.id}</div>
 				<hr />
-				<b>{post.title.toUpperCase()}</b>
+				<h5>{post.title.toUpperCase()}</h5>
 			</header>
 			<p>{@html post.body}</p>
 		</li>
@@ -45,15 +45,26 @@
 		display: flex;
 		flex-direction: column;
 		padding: 1rem;
-		justify-content: space-between;
+		/* justify-content: space-between; */
 		/* grid-auto-rows: max-content; */
-		border: 1px solid grey;
+		border: 1px solid rgb(217, 217, 217);
 	}
 
-	li.skeleton {
-		border-radius: 5px;
-		padding: 1rem;
-		height: 200px;
+	header div {
+		color: deepskyblue;
+	}
+	header h5 {
+		margin-block: 1rem;
+		font-weight: 800;
+		color: rgb(54, 54, 54);
+	}
+
+	p {
+		font-size: 0.9rem;
+	}
+
+	hr {
+		opacity: 0.1;
 	}
 
 	/* header {
