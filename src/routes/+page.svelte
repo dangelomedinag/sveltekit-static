@@ -1,21 +1,23 @@
 <script>
+	import { counter as count } from '$lib/stores/counter';
 	import { quintOut } from 'svelte/easing';
 	import { scale } from 'svelte/transition';
+	// counter
 
-	let count = 5;
+	// let count = co;
 </script>
 
-<button class="btn" on:click={() => count++} disabled={count >= 10}>{count}</button>
+<button class="btn" on:click={() => $count++} disabled={$count >= 10}>{$count}</button>
 <header>
-	{#if count >= 10}
-		<button class="btn" on:click={() => (count = 5)}>reset size</button>
+	{#if $count >= 10}
+		<button class="btn" on:click={() => count.set(5)}>reset size</button>
 	{/if}
 	{#key count}
 		<img
 			in:scale={{ easing: quintOut }}
 			src="./favicon.png"
 			alt="logo"
-			style:--size-logo={`${count * 20}px`}
+			style:--size-logo={`${$count * 20}px`}
 		/>
 	{/key}
 </header>

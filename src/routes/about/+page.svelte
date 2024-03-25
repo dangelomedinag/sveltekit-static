@@ -7,27 +7,27 @@
 		nn += 1;
 	}
 
-	const ComponetLazy = async () => {
-		let Component = (await import('$lib/components/Button.svelte')).default;
-		/**@param {number} ms*/
-		const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-		await sleep(1500);
+	// const ComponetLazy = async () => {
+	// 	let Component = (await import('$lib/components/Button.svelte')).default;
+	// 	/**@param {number} ms*/
+	// 	const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+	// 	await sleep(1500);
 
-		return Component;
-	};
+	// 	return Component;
+	// };
 </script>
 
 <h1>{nn}</h1>
 <button on:click={inc}>click</button>
 
-{#await ComponetLazy()}
+{#await data.lazy.component}
 	<ul>
 		<li></li>
 		<li></li>
 		<li></li>
 		<li></li>
 	</ul>
-{:then Component}
+{:then { default: Component }}
 	<Component data={data.posts}></Component>
 {/await}
 
